@@ -16,7 +16,7 @@
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
-      "copyright": "",
+      "copyright": "Anandhu GBS",
       "deb": {
         "depends": []
       },
@@ -58,7 +58,7 @@
         "height": 600,
         "resizable": true,
         "title": "Contact Viewer",
-        "width": 800
+        "width": 1200
       }
     ]
   }
