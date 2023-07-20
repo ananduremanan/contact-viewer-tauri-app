@@ -1,33 +1,89 @@
-.side-bar{
-    background: rgb(233, 233, 233);
-    display: flex;
-    flex-direction: column;
-    align-items: left;
+.side-bar {
+  background: rgb(233, 233, 233);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
-.side-bar .search{
-    display: flex;
-    margin-top: 2rem;
-    justify-content: center;
+.side-bar .search {
+  display: flex;
+  gap: 1rem;
 }
 
-.side-bar .contacts{
-    display: flex;
-    flex-direction: column;
-    padding-left: 2.5rem;
-    color: rgb(55, 55, 55);
+.side-bar .contacts {
+  display: flex;
+  flex-direction: column;
+  color: #373737;
+  gap: 1rem;
 }
 
-.custom-card{
-    margin-top: 2rem;
-    display: flex;
+.side-bar .home-logo {
+  margin-top: auto;
 }
 
-.custom-card img{
-    border-radius: 1rem;
+.custom-card {
+  padding: 2rem;
+  display: flex;
 }
 
-.custom-card .c-details-btn{
-    display: flex;
-    gap: 1rem;
+.custom-card img {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.custom-card .c-details-btn {
+  display: flex;
+  gap: 1rem;
+}
+
+.link-class {
+  color: rgb(67, 66, 66);
+  text-decoration: none;
+}
+
+.active-link {
+  font-weight: bold;
+  color: aliceblue;
+  background: #0d6efd;
+  padding: 0.4rem;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.default-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  color: #d2d2d2;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+
+.default-content img {
+  position: relative;
+}
+
+.default-content h1 {
+  position: absolute;
+  margin-top: 13rem;
+}
+
+.default-content p {
+  position: absolute;
+  margin-top: 19rem;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .side-bar {
+    padding: 1rem;
+  }
+
+  .side-bar .search {
+    flex-direction: column !important;
+    gap: 0.5rem;
+  }
 }

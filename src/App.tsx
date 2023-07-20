@@ -1,13 +1,13 @@
 import { Link, Route, Routes, useParams } from "react-router-dom";
 import "./App.css";
 import { useState, useEffect } from "react";
-import { invoke } from '@tauri-apps/api'
+import { invoke } from "@tauri-apps/api";
 
 export default function App() {
   const [contactData, setContactData] = useState<any>();
+  const [selectedLink, setSelectedLink] = useState(null);
 
-  invoke('greet', { name: 'World' })
-  .then((response) => console.log(response))
+  invoke("greet", { name: "World" }).then((response) => console.log(response));
 
   function UserDetails() {
     const { userId } = useParams<{ userId: string }>();
@@ -20,7 +20,12 @@ export default function App() {
           <div className="custom-card">
             <div className="row">
               <div className="col">
-                <img src={contact.avatar} alt="avatar" width="250px" />
+                <img
+                  src={contact.avatar}
+                  alt="avatar"
+                  width="250px"
+                  height="250px"
+                />
               </div>
               <div className="col">
                 <h1>{contact.first_name}</h1>
@@ -51,38 +56,56 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-3 side-bar">
-            <div className="search">
-              <div className="row">
-                <div className="col-md-8">
-                  <input className="form-control" placeholder="Search .." />
-                </div>
-                <div className="col-md-4">
-                  <button className="btn btn-primary">Search</button>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div className="contacts">
-              {contactData?.map((contact: any) => {
-                return (
-                  <div key={contact.id}>
-                    <Link to={`users/${contact.id}`}>
-                      {contact.first_name} {contact.last_name}
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-3 side-bar">
+          <div className="search">
+            <input className="form-control" placeholder="Search .." />
+            <button className="btn btn-primary">Search</button>
           </div>
-          <div className="col-sm-9">
-            <Routes>
-              <Route path="users/:userId" element={<UserDetails />} />
-            </Routes>
+          <hr />
+          <div className="contacts">
+            {contactData?.map((contact: any) => {
+              return (
+                <div key={contact.id}>
+                  <Link
+                    to={`users/${contact.id}`}
+                    className={`link-class ${
+                      selectedLink === contact.id ? "active-link" : ""
+                    }`}
+                    onClick={() => setSelectedLink(contact.id)}
+                  >
+                    {contact.first_name} {contact.last_name}
+                  </Link>
+                </div>
+              );
+            })}
           </div>
+          <Link to={"/"} className="home-logo" onClick={() => setSelectedLink(null)}>
+            <img
+              src="home.svg"
+              width="30px"
+              height="30px"
+            />
+          </Link>
+        </div>
+        <div className="col-sm-9">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="default-content">
+                  <img src="logo.png" width="250px" height="250px" />
+                  <h1>Contact Viewer</h1>
+                  <p>
+                    version 1.0 <br />
+                    Select a contact to view details.
+                  </p>
+                </div>
+              }
+            />
+            <Route path="users/:userId" element={<UserDetails />} />
+          </Routes>
         </div>
       </div>
     </div>

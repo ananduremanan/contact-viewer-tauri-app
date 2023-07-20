@@ -15,7 +15,7 @@ fn main() {
     .add_submenu(submenu);
 
   tauri::Builder::default()
-    .menu(menu)
+    // .menu(menu)
     .invoke_handler(tauri::generate_handler![greet])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
