@@ -81,13 +81,12 @@ export default function App() {
               );
             })}
           </div>
-          <Link to={"/"} className="home-logo" onClick={() => setSelectedLink(null)}>
-            <img
-              src="home.svg"
-              width="30px"
-              height="30px"
-            />
-          </Link>
+          <div className="home-logo">
+            <Link to={"/"} onClick={() => setSelectedLink(null)}>
+              <img src="home.svg" width="30px" height="30px" />
+            </Link>
+            <p className="version">v 1.0</p>
+          </div>
         </div>
         <div className="col-sm-9">
           <Routes>

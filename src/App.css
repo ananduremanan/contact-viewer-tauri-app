@@ -19,6 +19,13 @@
 
 .side-bar .home-logo {
   margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.side-bar .version{
+    text-decoration: none;
+    color: #89898940;
 }
 
 .custom-card {
