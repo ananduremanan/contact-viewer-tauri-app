@@ -22,7 +22,7 @@ export default function App() {
               <div className="col">
                 <img
                   src={contact.avatar}
-                  alt="avatar"
+                  alt={`avatar ${contact.first_name}`}
                   width="250px"
                   height="250px"
                 />
@@ -53,6 +53,14 @@ export default function App() {
     };
 
     fetchData();
+
+    const handleContextmenu = (e: any) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextmenu);
+    return function cleanup() {
+      document.removeEventListener("contextmenu", handleContextmenu);
+    };
   }, []);
 
   return (
@@ -81,11 +89,14 @@ export default function App() {
               );
             })}
           </div>
-          <div className="home-logo">
+
+          <div className="menu-bar">
             <Link to={"/"} onClick={() => setSelectedLink(null)}>
-              <img src="home.svg" width="30px" height="30px" />
+              <i className="fa-solid fa-house"></i>
             </Link>
-            <p className="version">v 1.0</p>
+            <i className="fa-solid fa-user-plus"></i>
+            <i className="fa-solid fa-ban"></i>
+            <i className="fa-solid fa-user"></i>
           </div>
         </div>
         <div className="col-sm-9">
@@ -94,7 +105,12 @@ export default function App() {
               path="/"
               element={
                 <div className="default-content">
-                  <img src="logo.png" width="250px" height="250px" />
+                  <img
+                    src="logo.png"
+                    width="250px"
+                    height="250px"
+                    alt="contact viewer logo"
+                  />
                   <h1>Contact Viewer</h1>
                   <p>
                     version 1.0 <br />

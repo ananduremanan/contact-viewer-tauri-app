@@ -15,17 +15,39 @@
   flex-direction: column;
   color: #373737;
   gap: 1rem;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.side-bar .home-logo {
+.side-bar .contacts::-webkit-scrollbar {
+  display: none;
+}
+
+.side-bar .menu-bar {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
+  text-decoration: none;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -4px 4px -4px rgba(0, 0, 0, 0.2);
+  padding-top: 0.5rem;
+}
+
+.side-bar .menu-bar i{
+  color: #b6b6b691;
+  font-size: 1.2rem;
 }
 
 .side-bar .version{
     text-decoration: none;
     color: #89898940;
+}
+
+.side-bar .add-btn .btn-primary{
+  width: fill;
 }
 
 .custom-card {
@@ -67,10 +89,12 @@
   justify-content: center;
   align-items: center;
   height: 80%;
+  user-select: none;
 }
 
 .default-content img {
   position: relative;
+  user-select: none;
 }
 
 .default-content h1 {
