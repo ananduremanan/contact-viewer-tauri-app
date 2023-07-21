@@ -1,0 +1,43 @@
+.custom-card {
+  padding: 2rem;
+  display: flex;
+}
+
+.custom-card img {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.custom-card .c-details-btn {
+  display: flex;
+  gap: 1rem;
+}
+
+.default-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  color: #d2d2d2;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  user-select: none;
+}
+
+.default-content img {
+  position: relative;
+  user-select: none;
+}
+
+.default-content h1 {
+  position: absolute;
+  margin-top: 13rem;
+}
+
+.default-content p {
+  position: absolute;
+  margin-top: 19rem;
+  text-align: center;
+}
