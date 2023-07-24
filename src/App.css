@@ -47,7 +47,7 @@
 }
 
 .side-bar .add-btn .btn-primary{
-  width: fill;
+  width: stretch;
 }
 
 .custom-card {
