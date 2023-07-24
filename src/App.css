@@ -36,17 +36,17 @@
   padding-top: 0.5rem;
 }
 
-.side-bar .menu-bar i{
+.side-bar .menu-bar i {
   color: #b6b6b691;
   font-size: 1.2rem;
 }
 
-.side-bar .version{
-    text-decoration: none;
-    color: #89898940;
+.side-bar .version {
+  text-decoration: none;
+  color: #89898940;
 }
 
-.side-bar .add-btn .btn-primary{
+.side-bar .add-btn .btn-primary {
   width: stretch;
 }
 

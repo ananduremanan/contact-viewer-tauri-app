@@ -1,18 +1,14 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { messageService } from "../../../Service/messageService";
+import { setSelectedLink } from "../../../redux/contactSlice";
+import "./Sidebar.module.css";
 
 export default function Menu() {
+  const dispatch = useDispatch();
+
   return (
     <div className="menu-bar">
-      <Link
-        to={"/"}
-        onClick={() =>
-          messageService.sendMessage({
-            key: "to_home",
-            status: true,
-          })
-        }
-      >
+      <Link to={"/"} onClick={() => dispatch(setSelectedLink(null))}>
         <i className="fa-solid fa-house"></i>
       </Link>
       <i className="fa-solid fa-user-plus"></i>

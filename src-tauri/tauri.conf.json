@@ -11,7 +11,13 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "window": {
+        "minimize": true,
+        "maximize": true,
+        "unmaximize": true,
+        "close": true
+      }
     },
     "bundle": {
       "active": true,

@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom";
-import "./Viewport.module.css"
+import "./Viewport.module.css";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../../redux/store";
 
-export default function ContactCard(contactData: any) {
+export default function ContactCard() {
+  const contactData = useSelector((state: RootState) => state.contact.data);
+
   const { userId } = useParams<{ userId: string }>();
   const contact = userId
     ? contactData?.find((contact: any) => contact.id === parseInt(userId))

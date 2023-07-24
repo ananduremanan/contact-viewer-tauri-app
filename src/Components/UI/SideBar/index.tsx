@@ -1,14 +1,14 @@
 import SearchBar from "./SearchBar";
 import Contacts from "./Contacts";
 import Menu from "./Menu";
+import "./Sidebar.module.css";
 
-export default function Sidebar(contactData: any) {
-  console.log(contactData.contactData)
+export default function Sidebar() {
   return (
     <div>
       <SearchBar />
-      <Contacts contactData={contactData} />
-      <Menu />
+      <hr />
+      <Contacts />
     </div>
   );
 }

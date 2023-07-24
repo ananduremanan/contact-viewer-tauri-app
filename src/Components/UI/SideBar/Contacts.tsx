@@ -1,15 +1,15 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { messageService } from "../../../Service/messageService";
+import { useSelector, useDispatch } from "react-redux";
+import { setSelectedLink } from "../../../redux/contactSlice";
+import type { RootState } from "../../../redux/store";
+import './Sidebar.module.css'
 
-export default function Contacts(contactData: any) {
-  const [selectedLink, setSelectedLink] = useState(null);
-
-  messageService.getMessage().subscribe((message: any) => {
-    if (message.status === true) {
-      setSelectedLink(null);
-    }
-  });
+export default function Contacts() {
+  const contactData = useSelector((state: RootState) => state.contact.data);
+  const selectedLink = useSelector(
+    (state: RootState) => state.contact.selectedLink
+  );
+  const dispatch = useDispatch();
 
   return (
     <div className="contacts">
@@ -21,7 +21,7 @@ export default function Contacts(contactData: any) {
               className={`link-class ${
                 selectedLink === contact.id ? "active-link" : ""
               }`}
-              onClick={() => setSelectedLink(contact.id)}
+              onClick={() => dispatch(setSelectedLink(contact.id))}
             >
               {contact.first_name} {contact.last_name}
             </Link>
